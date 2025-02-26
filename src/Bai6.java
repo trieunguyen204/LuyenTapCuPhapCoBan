@@ -50,6 +50,27 @@ public class Bai6 {
 
             }
 
+            // sap xep giam dan theo selectionSort
+            // b1: duyet tu index [0;n-2]  vi khi duyet  n-2 thi n-1 da dung vi tri
+            // b2: duyet den index = i thi tim max tron index [i+1;n-1]
+            // b3: doi vi tri neu can
+            for (int i =0; i<array_1.length-1;i++){
+                int maxIndex=i; // gs max dang o index i
+
+                for (int j=i+1;j<array_1.length;j++){ // tim max trong doan [i+1;n-1]
+                    if (array_1[maxIndex]<array_1[j]){
+                        maxIndex = j;
+                    }
+                }
+
+                if (maxIndex != i){
+                    // neu maxIndex thay doi thi phai doi cho de sap xep
+                    int temp = array_1[i];
+                    array_1[i]=array_1[maxIndex];
+                    array_1[maxIndex]=temp;
+                }
+            }
+
 
 
         }
