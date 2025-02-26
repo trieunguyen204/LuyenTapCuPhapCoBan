@@ -27,18 +27,31 @@ public class Bai6 {
             sum = Arrays.stream(array_1).sum(); // da tra ve int nen kh dung getAsInt()
             average = Arrays.stream(array_1).average().getAsDouble();
             // sap xep selectSort
-            int temp =99;
-            for (int i=0;i<n;i++){
+            // b1:duyet tu dau den cuoi mang
+            // b2:duyet den phan tu thu i, tim min (max) tren doan [i;n-1] (nhung code chi sx den n-2 vi index=n-1 tu dung)
+            // roi doi cho
+            // tim min + index[i],index[doi]
+            // b3:lap
 
+            for (int i=0;i<array_1.length-1;i++){
+                int indexMin =i; // gs min tại index = i
+                //tim min tren doan index [i+1;n-1]
                 for (int j=i+1;j<n;j++){
-                    if (temp>=array_1[j]){
-                        temp=array_1[j];
+                    if (array_1[indexMin]>array_1[j]){
+                        indexMin=j;
                     }
                 }
-                if (array_1[i]>=temp){
-                    array_1[i]=temp;
+
+                if (indexMin != i) { // neu min khong tai index = i  thi doi cho, tranh mat thoi gian
+                    int temp=array_1[i];
+                    array_1[i]=array_1[indexMin];
+                    array_1[indexMin]=temp;
                 }
+
             }
+
+
+
         }
         System.out.print("Mang ban vua nhap la:");
         for (int i =0;i<n;i++){
